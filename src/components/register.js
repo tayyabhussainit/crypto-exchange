@@ -2,12 +2,12 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useState } from 'react';
 import CustomAlert from './alert'
-
+import { useNavigate } from 'react-router-dom'
 function Register(props) {
     const [alert, setAlert] = useState(false);
     const [alertType, setAlertType] = useState('');
     const [alertMessage, setAlertMessage] = useState('');
-
+    const navigate = useNavigate();
     const newUserHandler = (event) => {
         event.preventDefault();
         const formData = new FormData(event.target);
@@ -43,7 +43,7 @@ function Register(props) {
         }
         setAlert(true);
         setAlertType('info');
-        setAlertMessage('User success, Please login');
+        setAlertMessage('User Registered, Please login');
         props.addNewUser(
             {
                 "email": email,
@@ -57,34 +57,44 @@ function Register(props) {
     }
 
     return (
-        <div className="col-6">
-            {alert && <CustomAlert alertType={alertType} alertMessage={alertMessage} />}
-            <Form onSubmit={newUserHandler}>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" name="email" placeholder="Enter email" />
-                </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" name="password" placeholder="Password" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicName">
-                    <Form.Label>Name</Form.Label>
-                    <Form.Control type="text" name="name" placeholder="Name" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicAddress">
-                    <Form.Label>Address</Form.Label>
-                    <Form.Control type="textarea" name="address" placeholder="address" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCnic">
-                    <Form.Label>CNIC</Form.Label>
-                    <Form.Control type="file" name="cnic" placeholder="CNIC" />
-                </Form.Group>
-                <Button variant="primary" type="submit">
-                    Submit
+        <div class="container">
+            <div class="row">
+                <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
+                    <div class="panel border bg-white">
+                        <div class="panel-heading">
+                            <h3 class="pt-3 font-weight-bold">Register</h3>
+                            {alert && <CustomAlert alertType={alertType} alertMessage={alertMessage} />}
+                            <Form onSubmit={newUserHandler}>
+                                <Form.Group className="mb-3" controlId="formBasicEmail">
+                                    <Form.Label>Email address</Form.Label>
+                                    <Form.Control type="email" name="email" placeholder="Enter email" />
+                                </Form.Group>
+
+                                <Form.Group className="mb-3" controlId="formBasicPassword">
+                                    <Form.Label>Password</Form.Label>
+                                    <Form.Control type="password" name="password" placeholder="Password" />
+                                </Form.Group>
+                                <Form.Group className="mb-3" controlId="formBasicName">
+                                    <Form.Label>Name</Form.Label>
+                                    <Form.Control type="text" name="name" placeholder="Name" />
+                                </Form.Group>
+                                <Form.Group className="mb-3" controlId="formBasicAddress">
+                                    <Form.Label>Address</Form.Label>
+                                    <Form.Control type="textarea" name="address" placeholder="address" />
+                                </Form.Group>
+                                <Form.Group className="mb-3" controlId="formBasicCnic">
+                                    <Form.Label>CNIC</Form.Label>
+                                    <Form.Control type="file" name="cnic" placeholder="CNIC" />
+                                </Form.Group>
+                                <Button variant="primary" type="submit">
+                                    Submit
                 </Button>
-            </Form>
+                            </Form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }

@@ -56,26 +56,39 @@ function SignIn({ updateRetries, setLoggedInUserFun, matchPassword, emailExists 
         navigate('/dashboard')
     }
     return (
-        <div className="text-center col-6" col={5}>
-            {alert && <CustomAlert alertType={alertType} alertMessage={alertMessage} />}
-            <Form onSubmit={submitHandler} className="form-signin">
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" name="email" placeholder="Enter email" />
-                    <Form.Text className="text-muted">
-                        We'll never share your email with anyone else.
+        <div class="container">
+            <div class="row">
+                <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
+                    <div class="panel border bg-white">
+                        <div class="panel-heading">
+                            <h3 class="pt-3 font-weight-bold">Login</h3>
+                            {alert && <CustomAlert alertType={alertType} alertMessage={alertMessage} />}
+                            <Form onSubmit={submitHandler}>
+                                <Form.Group className="mb-3" controlId="formBasicEmail">
+                                    <Form.Label>Email address</Form.Label>
+                                    <Form.Control type="email" name="email" placeholder="Enter email" />
+                                    <Form.Text className="text-muted">
+                                        We'll never share your email with anyone else.
                     </Form.Text>
-                </Form.Group>
+                                </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" name="password" placeholder="Password" />
-                </Form.Group>
-                <Button variant="primary" type="submit">
-                    Submit
+                                <Form.Group className="mb-3" controlId="formBasicPassword">
+                                    <Form.Label>Password</Form.Label>
+                                    <Form.Control type="password" name="password" placeholder="Password" />
+                                </Form.Group>
+                                <Button variant="primary" type="submit">
+                                    Submit
                 </Button>
-            </Form>
+                            </Form>
+                        </div>
+                        <div class="panel-body p-3">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+
+
     );
 }
 
