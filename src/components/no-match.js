@@ -5,7 +5,7 @@ export default function NoMatch() {
       <div>
         <h2>Nothing to see here!</h2>
         <p>
-          <Link to="/">Go to the life cycle methods page</Link>
+          <Link to="/">Go to home page</Link>
         </p>
       </div>
     );

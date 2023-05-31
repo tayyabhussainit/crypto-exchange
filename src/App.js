@@ -6,8 +6,8 @@ import NoMatch from './components/no-match'
 import SignIn from './components/signin';
 import { useState, useEffect } from 'react';
 import Register from './components/register';
-import { Button } from 'react-bootstrap';
 import Dashboard from './components/dashboard';
+import BlogListing from './blog/blogs-listing';
 function App() {
 
   const [users, setUsers] = useState([
@@ -74,6 +74,7 @@ function App() {
           <Route path="signin" element={<SignIn updateRetries={updateRetries} emailExists={emailExists} matchPassword={matchPassword} setLoggedInUserFun={setLoggedInUserFun} />} />
           <Route path="register" element={<Register addNewUser={newUser} emailExists={emailExists} />} />
           <Route path="dashboard" element={<Dashboard />} />
+          <Route path="blogs" element={<BlogListing />} />
           <Route path="*" element={<NoMatch />} />
         </Route>
       </Routes>

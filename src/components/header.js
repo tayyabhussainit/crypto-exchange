@@ -13,18 +13,21 @@ function Header({ loggedInUser, LogoutUser }) {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
-                    {loggedInUser && <li className="nav-item">
-                        <Link className="nav-link" to="/">Home</Link>
-                    </li>}
-                    {!loggedInUser && <li className="nav-item">
-                        <Link className="nav-link" to="/signin">SignIn</Link>
-                    </li>}
-                    {!loggedInUser && <li className="nav-item">
-                        <Link className="nav-link" to="/register">Register</Link>
-                    </li>}
-                    {loggedInUser && <li className="nav-item">
-                        <Link className="nav-link" to="/" onClick={Logout}>logout ({loggedInUser.email})</Link>
-                    </li>}
+                        {loggedInUser && <li className="nav-item">
+                            <Link className="nav-link" to="/">Home</Link>
+                        </li>}
+                        {!loggedInUser && <li className="nav-item">
+                            <Link className="nav-link" to="/signin">SignIn</Link>
+                        </li>}
+                        {!loggedInUser && <li className="nav-item">
+                            <Link className="nav-link" to="/register">Register</Link>
+                        </li>}
+                        {loggedInUser && <li className="nav-item">
+                            <Link className="nav-link" to="/" onClick={Logout}>logout ({loggedInUser.email})</Link>
+                        </li>}
+                        {!loggedInUser && <li className="nav-item">
+                            <Link className="nav-link" to="/blogs">Blogs</Link>
+                        </li>}
                     </ul>
                 </div>
             </nav>

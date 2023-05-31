@@ -2,12 +2,11 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useState } from 'react';
 import CustomAlert from './alert'
-import { useNavigate } from 'react-router-dom'
+
 function Register(props) {
     const [alert, setAlert] = useState(false);
     const [alertType, setAlertType] = useState('');
     const [alertMessage, setAlertMessage] = useState('');
-    const navigate = useNavigate();
     const newUserHandler = (event) => {
         event.preventDefault();
         const formData = new FormData(event.target);
