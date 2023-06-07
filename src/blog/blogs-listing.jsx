@@ -34,7 +34,7 @@ function BlogListing() {
     const editBlogFun = (id) => {
         let matchBlog = blogs.filter((blog) => { return (blog.id === id) });
         if (matchBlog.length) {
-            
+
             setBlogToBeEdit(matchBlog[0]);
             setModalText('Edit Blog');
             setButtonText('Save');
@@ -49,11 +49,11 @@ function BlogListing() {
 
         let foundIndex = updatedBlogs.findIndex(b => b.id == blog.id);
         const obj = {
-            title : blog.title,
-            description : blog.description,
-            id : blog.id
+            title: blog.title,
+            description: blog.description,
+            id: blog.id
         }
-      
+
         updatedBlogs[foundIndex] = obj;
         setBlogs(updatedBlogs)
     }

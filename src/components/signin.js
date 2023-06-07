@@ -4,13 +4,15 @@ import { useState } from 'react';
 import CustomAlert from './alert'
 import { useNavigate } from 'react-router-dom'
 import '../css/signin.css'
-function SignIn({ updateRetries, setLoggedInUserFun, matchPassword, emailExists }) {
+import { useDispatch } from 'react-redux';
+import {initAction} from '../coin/actions/actions'
+function SignIn({ updateRetries, setLoggedInUserFun, matchPassword, emailExists, users }) {
     const [alert, setAlert] = useState(false);
     const [alertType, setAlertType] = useState('');
     const [alertMessage, setAlertMessage] = useState('');
     const navigate = useNavigate();
+    const dispatch = useDispatch()
     const submitHandler = (event) => {
-
         event.preventDefault();
         const formData = new FormData(event.target);
         const email = formData.get("email");
@@ -53,15 +55,16 @@ function SignIn({ updateRetries, setLoggedInUserFun, matchPassword, emailExists 
         setAlertType('info');
         setAlertMessage('Signed IN');
         setLoggedInUserFun(user[0])
+        dispatch(initAction(user[0], users))
         navigate('/dashboard')
     }
     return (
-        <div class="container">
-            <div class="row">
-                <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
-                    <div class="panel border bg-white">
-                        <div class="panel-heading">
-                            <h3 class="pt-3 font-weight-bold">Login</h3>
+        <div className="container">
+            <div className="row">
+                <div className="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
+                    <div className="panel border bg-white">
+                        <div className="panel-heading">
+                            <h3 className="pt-3 font-weight-bold">Login</h3>
                             {alert && <CustomAlert alertType={alertType} alertMessage={alertMessage} />}
                             <Form onSubmit={submitHandler}>
                                 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -69,7 +72,7 @@ function SignIn({ updateRetries, setLoggedInUserFun, matchPassword, emailExists 
                                     <Form.Control type="email" name="email" placeholder="Enter email" />
                                     <Form.Text className="text-muted">
                                         We'll never share your email with anyone else.
-                    </Form.Text>
+                                </Form.Text>
                                 </Form.Group>
 
                                 <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -78,10 +81,10 @@ function SignIn({ updateRetries, setLoggedInUserFun, matchPassword, emailExists 
                                 </Form.Group>
                                 <Button variant="primary" type="submit">
                                     Submit
-                </Button>
+                                </Button>
                             </Form>
                         </div>
-                        <div class="panel-body p-3">
+                        <div className="panel-body p-3">
                         </div>
                     </div>
                 </div>

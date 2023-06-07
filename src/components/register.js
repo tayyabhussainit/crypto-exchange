@@ -51,7 +51,8 @@ function Register(props) {
                 "cnic": cnic,
                 "address": address,
                 "blocked": false,
-                "retries": 0
+                "retries": 0,
+                "coins": [{ id: 1, name: 'Gold Coin', count: 4 }, { id: 2, name: 'Silvar Coin', count: 3 }, { id: 3, name: 'Copper Coin', count: 5 }, { id: 4, name: 'Platinium Coin', count: 2 }, { id: 5, name: 'Iron Coin', count: 40 }]
             });
     }
 

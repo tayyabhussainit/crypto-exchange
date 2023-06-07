@@ -1,7 +1,16 @@
 import { Outlet, Link } from "react-router-dom";
+import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux';
+import { initAction } from '../coin/actions/actions'
+
 function Header({ loggedInUser, LogoutUser }) {
+    const dispatch = useDispatch()
+    const rLoggedInUser = useSelector((state) => {
+        return state.UserReducer.loggedInUser
+    });
 
     const Logout = () => {
+        dispatch(initAction(null, []))
         LogoutUser()
     }
     return (
@@ -23,10 +32,13 @@ function Header({ loggedInUser, LogoutUser }) {
                             <Link className="nav-link" to="/register">Register</Link>
                         </li>}
                         {loggedInUser && <li className="nav-item">
-                            <Link className="nav-link" to="/" onClick={Logout}>logout ({loggedInUser.email})</Link>
+                            <Link className="nav-link" to="/" onClick={Logout}>logout ({rLoggedInUser.email})</Link>
                         </li>}
                         {!loggedInUser && <li className="nav-item">
                             <Link className="nav-link" to="/blogs">Blogs</Link>
+                        </li>}
+                        {loggedInUser && <li className="nav-item">
+                            <Link className="nav-link" to="/coins">Coins</Link>
                         </li>}
                     </ul>
                 </div>
