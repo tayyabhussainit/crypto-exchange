@@ -6,7 +6,7 @@
 
 ## Register
 
-![Alt text](/ss/signin.jpg "Register")
+![Alt text](/ss/register.jpg "Register")
 
 ## Dashboard
 
