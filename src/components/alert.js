@@ -3,8 +3,8 @@ import Alert from 'react-bootstrap/Alert';
 function CustomAlert({ alertType, alertMessage }) {
     return (
         <>
-            <Alert key={alertType} variant={alertType}>
-                {alertMessage}!
+            <Alert data-testid='alert-type-test-1' key={alertType} variant={alertType}>
+                <span data-testid='alert-type-test-1'>{alertMessage}!</span>
             </Alert>
         </>
     )
