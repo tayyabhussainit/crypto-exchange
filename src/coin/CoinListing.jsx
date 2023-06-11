@@ -12,7 +12,6 @@ function CoinListing() {
 
     const navigate = useNavigate()
     useEffect(() => {
-        console.log(loggedInUser);
         if (!loggedInUser) {
             navigate('/signin')
         }
