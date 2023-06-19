@@ -2,13 +2,13 @@ import { render, screen, cleanup } from "@testing-library/react";
 import Alert from "../alert";
 
 test('renders with correct alert type', () => {
-    const alertType = 'info';
+    const alertType = 'alert-info';
     const alertMessage = 'Coin Transfered';
     render(<Alert alertType={alertType} alertMessage={alertMessage} />);
 
     const alertTypeElement = screen.getByTestId('alert-type-test-1');
     expect(alertTypeElement).toBeInTheDocument();
-    expect(alertTypeElement).toHaveTextContent('info');
+    expect(alertTypeElement).toHaveTextContent('alert-info');
 });
 
 test('renders with correct alert message', () => {
